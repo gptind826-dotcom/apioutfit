@@ -209,23 +209,3 @@ def home():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
-turn jsonify({"error": "UID required"}), 400
-
-    try:
-        r = requests.get(f"{INFO_API}?uid={uid}", timeout=15)
-        return jsonify(r.json())
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-
-@app.route('/')
-def home():
-    return {
-        "api": "Mafu Outfit API (Fixed)",
-        "usage": "/mafu-outfit?uid=UID&key=mafu",
-        "test": "/test?uid=UID (JSON data check)"
-    }
-
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
